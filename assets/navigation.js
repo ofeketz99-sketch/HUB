@@ -37,10 +37,13 @@
        absolute(main,response.url || url.href);
        await Promise.all([...main.querySelectorAll('.product-icon img, img.product-icon')].map(img => {
          const preload = new Image(); preload.src = img.src;
-         return preload.decode ? preload.decode().catch(() => {}) : Promise.resolve();
+         // Never let a slow or background-throttled decode block navigation.
+         const decoded = preload.decode ? preload.decode().catch(() => {}) : Promise.resolve();
+         return Promise.race([decoded, new Promise(done => setTimeout(done, 600))]);
        }));
        return {main,bg,title:doc.title,bodyClass:doc.body.className,
          theme:doc.querySelector('meta[name="theme-color"]')?.content,
+         icon:(()=>{const l=doc.querySelector('link[rel="icon"]');return l?new URL(l.getAttribute('href'),response.url||url.href).href:null;})(),
          description:doc.querySelector('meta[name="description"]')?.content};
      }).catch(error => {cache.delete(id);throw error;});
      cache.set(id,request);
@@ -65,9 +68,12 @@
      const page = await load(url);
      if (ticket !== sequence) return;
      if (transition) transition.skipTransition();
+     let applied = false;
      const update = () => {
-       if (ticket !== sequence) return;
+       if (applied || ticket !== sequence) return;
+       applied = true;
        if (push) history.pushState(null,'',url.href);
+       document.documentElement.classList.add('hub-navigated');
        document.body.className = page.bodyClass;
        document.title = page.title;
        for (const [name,value] of [['theme-color',page.theme],['description',page.description]]) {
@@ -75,11 +81,16 @@
        }
        document.querySelector('.brand-background').replaceWith(document.importNode(page.bg,true));
        document.querySelector('main').replaceWith(document.importNode(page.main,true));
+       if (page.icon) document.querySelector('link[rel="icon"]')?.setAttribute('href',page.icon);
        active(url);current=key(url);window.scrollTo({top:0,behavior:'instant'});
+       document.dispatchEvent(new CustomEvent('hub:pagechange'));
      };
-     if (document.startViewTransition && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+     if (document.startViewTransition && document.visibilityState === 'visible' && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
        transition=document.startViewTransition(update);
-       await transition.updateCallbackDone;
+       transition.ready.catch(() => {}); // a skipped transition rejects `ready`; that's expected
+       // A transition waits for a rendered frame; if none comes (throttled tab), swap without it.
+       await Promise.race([transition.updateCallbackDone, new Promise(done => setTimeout(done, 800))]);
+       if (!applied) { transition.skipTransition(); update(); }
      } else update();
    } catch(error) {
      if (ticket === sequence) {if(push)location.assign(url.href);else location.reload();}

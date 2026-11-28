@@ -1,12 +1,71 @@
 <!doctype html>
-<html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f0e5"><meta name="description" content="RONNY — תכנון טיולים. אתר, ובטלפון אפליקציה במסך הבית."><title>RONNY — HUB</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/site.css"><script defer src="../assets/navigation.js"></script><script defer src="../assets/add-home.js"></script></head>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f6f0e5">
+  <meta name="description" content="RONNY — תכנון טיולים על גבי מפה. אתר, ובטלפון אפליקציה במסך הבית.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="RONNY — HUB">
+  <meta property="og:description" content="אפליקציית Web לתכנון טיולים על גבי מפות קוד פתוח.">
+  <title>RONNY — HUB</title>
+  <link rel="icon" href="../assets/ronny-icon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/site.css">
+  <script defer src="../assets/navigation.js"></script>
+  <script defer src="../assets/add-home.js"></script>
+  <script defer src="../assets/interactions.js"></script>
+</head>
 <body class="product-page ronny-page">
-  <header class="hub-header"><a class="hub-name" href="../">HUB</a><nav class="hub-tabs" aria-label="מעבר בין מוצרים"><a href="../">TALI</a><a class="active" href="./" aria-current="page">RONNY</a><a href="../a-nav/">A.NAV</a></nav></header>
-  <div class="brand-background ronny-map" aria-hidden="true"><svg viewBox="0 0 1600 900" preserveAspectRatio="none"><path d="M-80 670 C220 470 345 575 590 415 S1010 170 1180 330 1440 610 1710 390"/><path d="M-50 745 C250 545 390 650 635 490 S1045 245 1220 405 1480 680 1740 465"/><path class="route" d="M90 650 C310 510 460 545 610 425 S900 265 1110 350 1340 540 1530 400"/><circle cx="92" cy="650" r="12"/><circle cx="1530" cy="400" r="12"/></svg></div>
-  <main><section class="product-hero" aria-labelledby="site-title"><div class="product-logo-slot"><span class="product-icon ronny-icon-wrap"><img src="../assets/ronny-icon.png" alt="" width="150" height="150"></span></div><h1 class="product-name" id="site-title" lang="en" dir="ltr">RONNY<span>.</span></h1><p class="product-subtitle">תכנון טיולים</p><div class="download-action"><a class="download-button" href="https://dev--ronnytripplanner.netlify.app/" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg><span>פתיחת RONNY</span></a><p class="download-meta for-desktop">אתר · נפתח בדפדפן, בלי התקנה</p><button type="button" class="add-home for-mobile" data-add-home="RONNY" data-app-url="https://dev--ronnytripplanner.netlify.app/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M12 8v8M8 12h8"/></svg><span>הוספה למסך הבית</span></button></div><a class="scroll-cue" href="#notes"><span>מה חדש</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></a></section>
-    <section class="notes" id="notes" aria-labelledby="notes-title"><h2 id="notes-title">מה חדש</h2>
+  <a class="skip-link" href="#content">דלג לתוכן</a>
+  <header class="hub-header">
+    <a class="hub-name" href="../">HUB</a>
+    <nav class="hub-tabs" aria-label="מעבר בין מוצרים">
+      <a href="../">TALI</a>
+      <a class="active" href="./" aria-current="page">RONNY</a>
+      <a href="../a-nav/" aria-label="A.NAV">A<span class="tab-dot" aria-hidden="true"></span>NAV</a>
+    </nav>
+  </header>
+  <div class="brand-background ronny-map" aria-hidden="true"><svg viewBox="0 0 1600 900" preserveAspectRatio="none" focusable="false"><path d="M-80 670 C220 470 345 575 590 415 S1010 170 1180 330 1440 610 1710 390"/><path d="M-50 745 C250 545 390 650 635 490 S1045 245 1220 405 1480 680 1740 465"/><path class="route" d="M90 650 C310 510 460 545 610 425 S900 265 1110 350 1340 540 1530 400"/><circle cx="92" cy="650" r="12"/><circle cx="1530" cy="400" r="12"/></svg></div>
+
+  <main id="content" tabindex="-1">
+    <section class="product-hero" aria-labelledby="site-title">
+      <div class="product-logo-slot"><span class="product-icon ronny-icon-wrap"><img src="../assets/ronny-icon.png" alt="" width="320" height="320"></span></div>
+      <h1 class="product-name" id="site-title" lang="en" dir="ltr">RONNY<span>.</span></h1>
+      <p class="product-subtitle">תכנון טיולים</p>
+      <div class="download-action">
+        <a class="download-button" href="https://dev--ronnytripplanner.netlify.app/" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg><span>פתיחת RONNY</span></a>
+        <p class="download-meta for-desktop">אתר · נפתח בדפדפן, בלי התקנה</p>
+        <button type="button" class="add-home for-mobile" data-add-home="RONNY" data-app-url="https://dev--ronnytripplanner.netlify.app/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M12 8v8M8 12h8"/></svg><span>הוספה למסך הבית</span></button>
+      </div>
+      <a class="scroll-cue" href="#notes"><span class="cue-label"><span class="cue-down">עדכונים אחרונים</span><span class="cue-up" aria-hidden="true">חזרה למעלה</span></span><span class="cue-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></a>
+    </section>
+
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <header class="section-head"><p class="eyebrow">אודות</p><h2 id="about-title">מה זה <bdi>RONNY</bdi></h2></header>
+      <div class="about-card">
+        <p class="about-lead">אפליקציית Web לתכנון טיולים, בנויה כדשבורד על גבי מפות קוד פתוח. הדגש הוא על תכנון קרטוגרפי על גבי המפה.</p>
+        <ul class="feature-list">
+          <li>מציאת צירים אוטומטית</li>
+          <li>שכבות לוגיות: מקווי מתאר ועד ימים ושעות מופרדים</li>
+          <li>גזירת זמנים ידנית או אוטומטית</li>
+          <li>תכנון מפורט בזמן ובמרחב</li>
+          <li>סיווג נקודות</li>
+          <li>ייבוא נקודות מרשימות אישיות קיימות ב־Google Maps</li>
+          <li>ייצוא לקובצי PDF</li>
+          <li>מעבר ישיר בין המפות בממשק ל־Google Maps, להצלבת נתונים ולשימוש ב־Street View</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section notes" id="notes" aria-labelledby="notes-title">
+      <header class="section-head"><p class="eyebrow">גרסאות</p><h2 id="notes-title">עדכונים אחרונים</h2></header>
       <article class="note"><header><span class="ver">128</span><h3>תפריט קובץ וייצוא PDF</h3><time datetime="2026-11-24">24.11.2026</time></header><ul><li>כפתור „ייבוא וייצוא” הוחלף בתפריט „קובץ”.</li><li>פעולות PDF, Excel, שמירת גיבוי, טעינת גיבוי ומקומות Google קובצו יחד.</li><li>ייצוא PDF מכין את המפה לרוחב הנייר ופותח ישירות את חלון ההדפסה.</li></ul></article>
       <article class="note"><header><span class="ver">127</span><h3>הליכה כבלוק אחד בלוח הזמנים</h3><time datetime="2026-11-23">23.11.2026</time></header><ul><li>הליכה מוצגת כבלוק אחד עם נקודת התחלה, פנייה וסיום.</li><li>זמן החזרה מחושב לפי המסלול בפועל.</li><li>המרחק והזמן מוצגים גם בסיכום היום ובייצוא Excel.</li></ul></article>
       <article class="note"><header><span class="ver">126</span><h3>תפקידי נקודות ומקומות לינה</h3><time datetime="2026-11-23">23.11.2026</time></header><ul><li>תפקיד הנקודה נשמר בנפרד מהקטגוריה.</li><li>סיום יום ותחילת היום הבא מטופלים כמקום לינה אחד.</li><li>נוסף מצב מעבר בין ימים כאשר יש פער אמיתי.</li></ul></article>
-    </section></main>
-</body></html>
+    </section>
+  </main>
+</body>
+</html>
